@@ -1,9 +1,9 @@
 # Amazon Rekognition Custom Labels - Managing a datset Example 
 
 ### 사전 준비 작업
-+ my-rekognition-customlabels-XYZ 이라는 S3 버킷을 생성함 (S3 bucket 이름이 중복되지 않도록 `XYZ` 를 적절하게 다른 문자열로 변경해야함)
-+ my-rekognition-customlabels-XYZ 아래에 animals 라는 디렉터리를 생성함
-+ animals 라는 directory 안에 dataset/animals 디렉터리에 있는 10장의 샘플 이미지를 저장함
++ my-rekognition-customlabels-XYZ 이라는 S3 버킷을 생성한다. (S3 bucket 이름이 중복되지 않도록 `XYZ` 를 적절하게 다른 문자열로 변경해야한다)
++ my-rekognition-customlabels-XYZ 아래에 animals 라는 디렉터리를 생성한다.
++ animals 라는 directory 안에 dataset/animals 디렉터리에 있는 10장의 샘플 이미지를 저장한다.
 
 ### SageMaker Ground Truth format manifest 파일을 이용해서 dataset 생성하기
 

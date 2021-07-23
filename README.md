@@ -43,6 +43,26 @@ Amazon Rekognition Custom Labels 서비스가 S3 버킷에 접근하기 위해 �
 11. **Submit** 를 선택하면,  다음과 같은 화면을 볼 수 있다.<br/>
 ![review_custom_labels](./resources/review_custom_labels.png)
 
+### Dataset 삭제 방법
+- Dataset을 삭제하기 위해서는 주의하실 점은 s3에 upload된 이미지 데이터를 삭제한다고 Dataset에서 삭제되는 것이 아니라, manifest 파일에서 삭제할 이미지 데이터에 대한 정보를 삭제해야 한다.
+
+1. AWS 웹 콘솔의 [Amazon Rekognition Custom Labels 서비스](https://console.aws.amazon.com/rekognition/)에 접속한다.
+2. 왼쪽 위의 메뉴에서 **Datasets** 을 선택한다.
+3. **Datasets** 에서 삭제할 데이터의 **Location**, 즉 S3 위치를 클릭해서, `*.manifest` 파일의 S3 위치를 확인한다.
+4. `*.manifest` 파일을 S3에서 다운로드 한 후, 삭제할 dataset을 `*.manifest` 파일에서 삭제한다.<br/>
+    예)
+    (1) 최초 **.manifest** 파일 내용
+    ```json
+    {"source-ref":"s3://my-rekognition-customlabels-XYZ/aws/aws-1.png","test-dataset_BB":{"annotations":[{"left":13,"top":189,"width":975,"height":613,"class_id":0}],"image_size":[{"width":1000,"height":1000,"depth":3}]},"test-dataset_BB-metadata":{"job-name":"labeling-job/test-dataset_BB","class-map":{"0":"aws"},"human-annotated":"yes","objects":[{"confidence":1}],"creation-date":"2021-05-13T12:48:15.600Z","type":"groundtruth/object-detection"}}
+    {"source-ref":"s3://rekognition-customlabels-use1/aws/aws-10.png","test-dataset_BB":{"annotations":[{"left":19,"top":11,"width":510,"height":316,"class_id":0}],"image_size":[{"width":1480,"height":340,"depth":3}]},"test-dataset_BB-metadata":{"job-name":"labeling-job/test-dataset_BB","class-map":{"0":"aws"},"human-annotated":"yes","objects":[{"confidence":1}],"creation-date":"2021-05-13T12:48:39.138Z","type":"groundtruth/object-detection"}}
+    ```
+    (2) "aws-1.png" 파일을 삭제 한 후, output.manifest 파일 내용
+    ```json
+    {"source-ref":"s3://my-rekognition-customlabels-XYZ/aws/aws-10.png","test-dataset_BB":{"annotations":[{"left":19,"top":11,"width":510,"height":316,"class_id":0}],"image_size":[{"width":1480,"height":340,"depth":3}]},"test-dataset_BB-metadata":{"job-name":"labeling-job/test-dataset_BB","class-map":{"0":"aws"},"human-annotated":"yes","objects":[{"confidence":1}],"creation-date":"2021-05-13T12:48:39.138Z","type":"groundtruth/object-detection"}}
+    ```
+5. 수정한 `*.manifest` 파일을 `*.manifest` 파일이 처음 위치한 s3에 다시 upload 한다.<br/>
+`*.manifest` 파일 upload 후, Amazon Rekognition Custom Labels의 Datasets 화면을 refresh 하면, Images 수가 변경된 것을 확인 할 수 있다.
+
 ### References
 + [Amazon Rekognition Custom Labels - Creating a manifest file](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/cd-manifest-files.html)
 + [Amazon Rekognition Custom Labels - Object localization(Bounding Box) in manifest files](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/cd-manifest-files-object-detection.html)

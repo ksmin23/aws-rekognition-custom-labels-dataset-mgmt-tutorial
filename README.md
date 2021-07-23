@@ -28,17 +28,19 @@
 
 2. manifest 파일을 s3 버킷에 업로드한다
 3.  Amazon Rekognition 웹 콘솔 [https://console.aws.amazon.com/rekognition/](https://console.aws.amazon.com/rekognition/)에 접속한다.
-4.  Use Custom Labels 를 선택한다.
-5.  Get started 를 선택한다.
-6. 왼쪽 상단의 메뉴에서 Datasets 을 선택한다.
-7. Datasets 에서 Create dataset 을 선택 한다.<br/>
+4.  **Use Custom Labels** 를 선택한다.
+5.  **Get started** 를 선택한다.
+6. 왼쪽 상단의 메뉴에서 **Datasets** 을 선택한다.
+7. **Datasets** 에서 **Create dataset** 을 선택 한다.<br/>
 ![create_dataset](./resources/create_dataset.png)
-8. Create dataset 상세 페이지에서 dataset 이름을 입력한다. (animals-custom-labels)
-9. Image location에서 Import images labeled by SageMaker Ground Truth 를 선택한다.
-10. .manifest file location 에 2단계에서 업로드한 input.manifest 파일의 S3 위치를 넣는다.
-input.manifest 파일의 S3 위치를 .manifest file location에 기록하면, Amazon Rekognition Custom Labels 서비스가 S3 버킷에 접근하기 위해 필요한 S3 Bucket Policy가 출력되는데, 이 가이드 대로 S3 버킷 Permission이 설정되어 있는지 확인이 필요하다.<br/>
+8. **Create dataset** 상세 페이지에서 dataset 이름을 입력한다. (animals-custom-labels)
+9. **Image location** 에서 **Import images labeled by SageMaker Ground Truth** 를 선택한다.
+10. **.manifest file location** 에 2단계에서 업로드한 `input.manifest` 파일의 S3 위치를 넣는다.
+`input.manifest` 파일의 S3 위치를 **.manifest file location** 에 기록하면, 
+Amazon Rekognition Custom Labels 서비스가 S3 버킷에 접근하기 위해 필요한 S3 Bucket Policy가 출력되는데, 
+이 가이드 대로 S3 버킷의 Permission이 설정되어 있는지 확인이 필요하다.<br/>
 ![manifest_file_location](./resources/manifest_file_location.png)
-11. Submit 를 선택하면,  다음과 같은 화면을 볼 수 있다.<br/>
+11. **Submit** 를 선택하면,  다음과 같은 화면을 볼 수 있다.<br/>
 ![review_custom_labels](./resources/review_custom_labels.png)
 
 ### References

@@ -44,7 +44,7 @@ Amazon Rekognition Custom Labels 서비스가 S3 버킷에 접근하기 위해 �
 ![review_custom_labels](./resources/review_custom_labels.png)
 
 ### Dataset 삭제 방법
-- Dataset을 삭제하기 위해서는 주의하실 점은 s3에 upload된 이미지 데이터를 삭제한다고 Dataset에서 삭제되는 것이 아니라, manifest 파일에서 삭제할 이미지 데이터에 대한 정보를 삭제해야 한다.
+- <span style="color:red">Dataset을 삭제하기 위해서는 주의하실 점은 s3에 upload된 이미지 데이터를 삭제한다고 Dataset에서 삭제되는 것이 아니라, manifest 파일에서 삭제할 이미지 데이터에 대한 정보를 삭제해야 한다.</span>
 
 1. AWS 웹 콘솔의 [Amazon Rekognition Custom Labels 서비스](https://console.aws.amazon.com/rekognition/)에 접속한다.
 2. 왼쪽 위의 메뉴에서 **Datasets** 을 선택한다.
